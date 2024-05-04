@@ -1,15 +1,18 @@
 using Dev.Plugin.Authen.Infrastructure;
-using Dev.WebApi.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.AddAuthen();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 var app = builder.Build();
+app.UseAuthen();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -19,8 +22,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-//Routes
-WeatherForecastRoutes.RegisterWeatherForecastAPI(app);
-
+app.MapControllers();
 app.Run();
 
+public partial class Program { }
