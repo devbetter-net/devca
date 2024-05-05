@@ -8,5 +8,6 @@ public class SignInResponse : BaseResponse
     {
         
     }
-   
+    public bool SignInSuccessfully { get; set; } = false;
+    public string Token { get; set; } = string.Empty;
 }

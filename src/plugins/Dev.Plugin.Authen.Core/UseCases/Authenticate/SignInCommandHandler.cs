@@ -1,9 +1,17 @@
-﻿using MediatR;
+﻿using Dev.Plugin.Authen.Core.Services;
+using MediatR;
 
 namespace Dev.Plugin.Authen.Core.UseCases.Authenticate;
 
 public class SignInCommandHandler : IRequestHandler<SignInCommand, SignInResponse>
 {
+    private readonly IAuthenticateService _authenticateService;
+
+    public SignInCommandHandler(IAuthenticateService authenticateService)
+    {
+        _authenticateService = authenticateService;
+    }
+
     public async Task<SignInResponse> Handle(SignInCommand request, CancellationToken cancellationToken)
     {
         var response = new SignInResponse();
@@ -18,10 +26,18 @@ public class SignInCommandHandler : IRequestHandler<SignInCommand, SignInRespons
                 response.ValidationErrors.Add(error.ErrorMessage);
             }
         }
-        if (response.Success)
+        if (!response.Success)
         {
-            // logic to authenticate user
+            return response;
         }
+        //get by email
+        var user = await _authenticateService.GetUserByEmailAsync(request.Email);
+        if (user == null)
+        {
+            return response;
+        }
+    
+
         return response;
     }
 }
