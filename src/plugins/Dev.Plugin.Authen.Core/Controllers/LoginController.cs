@@ -1,12 +1,7 @@
 ﻿using Dev.Plugin.Authen.Core.UseCases.Authenticate;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
+namespace Dev.Plugin.Authen.Core.Controllers;
 
-namespace Dev.Plugin.Authen.Core;
-
-[Route("api/authen/[controller]")]
-[ApiController]
-public class LoginController : ControllerBase
+public class LoginController : BaseController
 {
     private readonly IMediator _mediator;
 

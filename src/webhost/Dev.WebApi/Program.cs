@@ -1,4 +1,5 @@
 using Dev.Plugin.Authen.Infrastructure;
+using Dev.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -20,7 +21,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCustomExceptionHandler();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();

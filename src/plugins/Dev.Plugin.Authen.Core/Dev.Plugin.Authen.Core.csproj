@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="UseCases\Roles\" />
-    <Folder Include="UseCases\Users\" />
   </ItemGroup>
 
   <ItemGroup>
