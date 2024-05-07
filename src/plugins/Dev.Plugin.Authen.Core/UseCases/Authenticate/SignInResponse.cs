@@ -1,6 +1,4 @@
-﻿using Dev.Core;
-
-namespace Dev.Plugin.Authen.Core.UseCases.Authenticate;
+﻿namespace Dev.Plugin.Authen.Core.UseCases.Authenticate;
 
 public class SignInResponse : BaseResponse
 {

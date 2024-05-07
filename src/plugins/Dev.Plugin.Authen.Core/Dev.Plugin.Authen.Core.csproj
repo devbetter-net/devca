@@ -5,10 +5,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\Roles\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
   </ItemGroup>
 

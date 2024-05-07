@@ -23,6 +23,7 @@ public static class WebApplicationExtensions
         builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
         builder.Services.AddScoped<IRoleService, RoleService>();
         builder.Services.AddScoped<IUserService, UserService>();        
+        builder.Services.AddScoped<ICommonService, CommonService>();
         //routes
     }
 

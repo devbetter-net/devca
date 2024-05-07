@@ -1,6 +1,6 @@
-﻿namespace Dev.Plugin.Authen.Core.Domain;
+﻿namespace Dev.Plugin.Authen.Core.UseCases.Roles;
 
-public class Role
+public class RoleDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
@@ -8,6 +8,4 @@ public class Role
     public bool Active { get; set; }
     public bool IsSystemRole { get; set; }
     public string SystemName { get; set; } = string.Empty;
-    public ICollection<UserRole>? UserRoles { get; set; }
-    public ICollection<RolePermission>? RolePermissions { get; set; }
 }
