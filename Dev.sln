@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0585DF4E-078B-418D-944C-190ECEA17388}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3A82751E-AC80-4AA9-8959-406A63E546DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Infrastructure", "src\common\Dev.Infrastructure\Dev.Infrastructure.csproj", "{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Core", "src\common\Dev.Core\Dev.Core.csproj", "{4D99A431-5A95-401A-B6DB-208DF28FBAD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plugins", "plugins", "{CB163C69-3FF0-4C89-853B-48F59DC55B21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Plugin.Authen.Core", "src\plugins\Dev.Plugin.Authen.Core\Dev.Plugin.Authen.Core.csproj", "{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Plugin.Authen.Infrastructure", "src\plugins\Dev.Plugin.Authen.Infrastructure\Dev.Plugin.Authen.Infrastructure.csproj", "{EB575E5E-30FD-4CD9-B4C1-E333002FE142}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webhost", "webhost", "{69BFBBB8-172C-4463-A238-491F40B28D1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.WebApi", "src\webhost\Dev.WebApi\Dev.WebApi.csproj", "{3BEBE7F8-7DAD-4765-BB38-C954159B103B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D99A431-5A95-401A-B6DB-208DF28FBAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D99A431-5A95-401A-B6DB-208DF28FBAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D99A431-5A95-401A-B6DB-208DF28FBAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D99A431-5A95-401A-B6DB-208DF28FBAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB575E5E-30FD-4CD9-B4C1-E333002FE142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB575E5E-30FD-4CD9-B4C1-E333002FE142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB575E5E-30FD-4CD9-B4C1-E333002FE142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB575E5E-30FD-4CD9-B4C1-E333002FE142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BEBE7F8-7DAD-4765-BB38-C954159B103B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEBE7F8-7DAD-4765-BB38-C954159B103B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEBE7F8-7DAD-4765-BB38-C954159B103B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEBE7F8-7DAD-4765-BB38-C954159B103B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A82751E-AC80-4AA9-8959-406A63E546DE} = {0585DF4E-078B-418D-944C-190ECEA17388}
+		{BEE3E954-FA0B-4AC9-A7F5-BFA7088D8628} = {3A82751E-AC80-4AA9-8959-406A63E546DE}
+		{4D99A431-5A95-401A-B6DB-208DF28FBAD0} = {3A82751E-AC80-4AA9-8959-406A63E546DE}
+		{CB163C69-3FF0-4C89-853B-48F59DC55B21} = {0585DF4E-078B-418D-944C-190ECEA17388}
+		{2DFBA3B5-C45E-4E43-B8CE-283E2B6810FB} = {CB163C69-3FF0-4C89-853B-48F59DC55B21}
+		{EB575E5E-30FD-4CD9-B4C1-E333002FE142} = {CB163C69-3FF0-4C89-853B-48F59DC55B21}
+		{69BFBBB8-172C-4463-A238-491F40B28D1D} = {0585DF4E-078B-418D-944C-190ECEA17388}
+		{3BEBE7F8-7DAD-4765-BB38-C954159B103B} = {69BFBBB8-172C-4463-A238-491F40B28D1D}
+	EndGlobalSection
+EndGlobal
