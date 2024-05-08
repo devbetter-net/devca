@@ -30,10 +30,11 @@ public class RoleController : BaseController
         return Ok(await _mediator.Send(command));
     }
 
-    [HttpPut]
-    public async Task<IActionResult> UpdateRole([FromBody] UpdateRoleCommand command)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateRole(Guid id, [FromBody] UpdateRoleCommand command)
     {
+        command.Id = id;
         await _mediator.Send(command);
-        return NoContent();
+        return Ok();
     }
 }

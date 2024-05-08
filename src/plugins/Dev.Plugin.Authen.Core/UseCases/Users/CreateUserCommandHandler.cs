@@ -45,7 +45,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
             User = user
         };
 
-        await _userService.CreateUserAsync(userPassword);
+        await _userService.CreateUserPasswordAsync(userPassword);
         return new CreateUserCommandResponse(user.Id);
     }
 }
