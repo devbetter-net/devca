@@ -35,15 +35,15 @@ public class ExceptionHandlerMiddleware
 
         switch (exception)
         {
-            case ValidationException validationException:
+            case DevValidationException validationException:
                 httpStatusCode = HttpStatusCode.BadRequest;
                 result = JsonSerializer.Serialize(validationException.ValdationErrors);
                 break;
-            case BadRequestException badRequestException:
+            case DevBadRequestException badRequestException:
                 httpStatusCode = HttpStatusCode.BadRequest;
                 result = badRequestException.Message;
                 break;
-            case NotFoundException:
+            case DevNotFoundException:
                 httpStatusCode = HttpStatusCode.NotFound;
                 break;
             case Exception:

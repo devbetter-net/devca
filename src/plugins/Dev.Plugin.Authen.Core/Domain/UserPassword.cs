@@ -6,5 +6,5 @@ public class UserPassword
     public Guid UserId { get; set; }
     public string Password { get; set; } = string.Empty;
     public DateTime CreatedOnUtc { get; set; }
-    public User User { get; set; } = new();
+    public User User { get; set; } = default!;
 }

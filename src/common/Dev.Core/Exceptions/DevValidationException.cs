@@ -3,11 +3,11 @@ using FluentValidation.Results;
 
 namespace Dev.Core.Exceptions;
 
-public class ValidationException : Exception
+public class DevValidationException : Exception
 {
     public List<string> ValdationErrors { get; set; }
 
-    public ValidationException(ValidationResult validationResult)
+    public DevValidationException(ValidationResult validationResult)
     {
         ValdationErrors = new List<string>();
 

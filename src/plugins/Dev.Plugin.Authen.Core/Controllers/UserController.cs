@@ -14,8 +14,19 @@ public class UserController : BaseController
     public async Task<IActionResult> GetAsync()
     {
         var userListQuery = new GetUserListQuery();
+        return Ok(await _mediator.Send(userListQuery));
+    }
 
-        var users = await _mediator.Send(userListQuery);
-        return Ok(users);
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetByAsync(Guid id)
+    {
+        var userQuery = new GetUserByIdQuery(id);
+        return Ok(await _mediator.Send(userQuery));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateAsync([FromBody] CreateUserCommand command)
+    {
+        return Ok(await _mediator.Send(command));
     }
 }

@@ -21,9 +21,7 @@ public class RoleController : BaseController
     [HttpGet("{id}")]
     public async Task<IActionResult> GetRole(Guid id)
     {
-        var query = new GetRoleQuery { Id = id };
-        var result = await _mediator.Send(query);
-        return Ok(result);
+        return Ok(await _mediator.Send(new GetRoleByIdQuery(id)));
     }
 
     [HttpPost]

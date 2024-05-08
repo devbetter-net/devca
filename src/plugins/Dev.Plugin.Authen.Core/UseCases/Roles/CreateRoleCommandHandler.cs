@@ -4,11 +4,11 @@ using Dev.Plugin.Authen.Core.Services;
 
 namespace Dev.Plugin.Authen.Core.UseCases.Roles;
 
-public class CreateRoleHandler : IRequestHandler<CreateRoleCommand, CreateRoleResponse>
+public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, CreateRoleResponse>
 {
     private readonly IRoleService _roleService;
 
-    public CreateRoleHandler(IRoleService roleService)
+    public CreateRoleCommandHandler(IRoleService roleService)
     {
         _roleService = roleService;
     }
@@ -18,7 +18,7 @@ public class CreateRoleHandler : IRequestHandler<CreateRoleCommand, CreateRoleRe
         var validationResult = await validator.ValidateAsync(request);
         if (validationResult.Errors.Count > 0)
         {
-            throw new Dev.Core.Exceptions.ValidationException(validationResult);
+            throw new DevValidationException(validationResult);
         }
 
         var role = new Role
