@@ -1,4 +1,5 @@
-﻿using Dev.Plugin.Authen.Core.Services;
+﻿using Dev.Plugin.Authen.Core.Domain;
+using Dev.Plugin.Authen.Core.Services;
 
 namespace Dev.Plugin.Authen.Core.UseCases.Roles;
 
@@ -20,6 +21,19 @@ public class UpdateRoleCommandValidator : AbstractValidator<UpdateRoleCommand>
 
     private async Task<bool> RoleNameUniqueAsync(UpdateRoleCommand command, CancellationToken token)
     {
-        return await _roleService.IsRoleNameUniqueAsync(command.Name);
+        List<Role> roles = await _roleService.SearchRoleAsync(command.Name);
+        if (roles.Count == 0)
+        {
+            return true;
+        }
+        foreach (var role in roles)
+        {
+            if (role.Name == command.Name && role.Id != command.Id)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

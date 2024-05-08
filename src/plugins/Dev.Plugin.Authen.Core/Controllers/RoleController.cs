@@ -27,7 +27,13 @@ public class RoleController : BaseController
     [HttpPost]
     public async Task<IActionResult> CreateRole([FromBody] CreateRoleCommand command)
     {
-        var result = await _mediator.Send(command);
-        return Ok(result);
+        return Ok(await _mediator.Send(command));
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateRole([FromBody] UpdateRoleCommand command)
+    {
+        await _mediator.Send(command);
+        return NoContent();
     }
 }
