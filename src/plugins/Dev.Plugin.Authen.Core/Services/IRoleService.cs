@@ -5,6 +5,7 @@ namespace Dev.Plugin.Authen.Core.Services;
 
 public interface IRoleService
 {
+    Task AddUserToRoleAsync(Guid roleId, Guid userId);
     Task CreateRoleAsync(Role role);
     Task<Role?> GetByIdAsync(Guid id);
     Task<bool> IsRoleNameUniqueAsync(string name);
