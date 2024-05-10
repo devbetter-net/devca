@@ -29,4 +29,12 @@ public class UserController : BaseController
     {
         return Ok(await _mediator.Send(command));
     }
+
+    [HttpPut("{id}/password")]
+    public async Task<IActionResult> ChangePasswordAsync(Guid id, [FromBody] ChangePasswordCommand command)
+    {
+        command.UserId = id;
+        await _mediator.Send(command);
+        return Ok();
+    }
 }

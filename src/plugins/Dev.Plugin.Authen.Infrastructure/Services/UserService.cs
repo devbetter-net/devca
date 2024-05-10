@@ -11,7 +11,7 @@ public class UserService : IUserService
         _context = context;
     }
 
-    public async Task CreateUserAsync(UserPassword userPassword)
+    public async Task CreateUserPasswordAsync(UserPassword userPassword)
     {
         await _context.UserPasswords.AddAsync(userPassword);
         await _context.SaveChangesAsync();
@@ -37,5 +37,19 @@ public class UserService : IUserService
     public async Task<bool> IsUsernameUniqueAsync(string username)
     {
         return await _context.Users.AllAsync(user => user.Username.ToUpper() != username.ToUpper());
+    }
+
+    public async Task<bool> VerifyPasswordAsync(User user, string currentPassword)
+    {
+        UserPassword? userPassword = await _context.UserPasswords
+                                                  .Where(up => up.UserId == user.Id)
+                                                  .OrderByDescending(up => up.CreatedOnUtc)
+                                                  .FirstOrDefaultAsync();
+        if (userPassword == null)
+        {
+            return false;
+        }
+
+        return userPassword.Password == currentPassword;
     }
 }

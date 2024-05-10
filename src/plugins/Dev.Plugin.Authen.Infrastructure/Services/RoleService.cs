@@ -14,6 +14,20 @@ public class RoleService : IRoleService
         _context = context;
     }
 
+    public async Task AddUserToRoleAsync(Guid roleId, Guid userId)
+    {
+        var existingRole = await _context.UserRoles.FirstOrDefaultAsync(x => x.UserId == userId && x.RoleId == roleId);
+        if (existingRole == null)
+        {
+            await _context.UserRoles.AddAsync(new UserRole
+            {
+                RoleId = roleId,
+                UserId = userId
+            });
+            await _context.SaveChangesAsync();
+        }
+    }
+
     public async Task CreateRoleAsync(Role role)
     {
         await _context.Roles.AddAsync(role);

@@ -1,5 +1,7 @@
 ﻿using Dev.Plugin.Authen.Core.UseCases.Authenticate;
+using Microsoft.AspNetCore.Authorization;
 namespace Dev.Plugin.Authen.Core.Controllers;
+
 
 public class LoginController : BaseController
 {
@@ -10,6 +12,7 @@ public class LoginController : BaseController
         _mediator = mediator;
     }
 
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Login([FromBody] SignInCommand request)
     {
