@@ -1,9 +1,7 @@
-﻿using Dev.Plugin.Authen.Core.Services;
-
-namespace Dev.Plugin.Authen.Core;
+﻿namespace Dev.Plugin.Blog.Core.Controllers;
 
 [ApiController]
-[Route("api/authen/[controller]")]
+[Route("api/blog/[controller]")]
 public class ScriptController : ControllerBase
 {
     private readonly ICommonService _commonService;

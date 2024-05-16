@@ -1,0 +1,25 @@
+﻿using Dev.Plugin.Authen.IntergrationTests.Base;
+
+namespace Dev.Plugin.Authen.IntergrationTests.Controllers;
+public class ScriptControllerTests : IClassFixture<CustomWebApplicationFactory<Program>>
+{
+    private readonly CustomWebApplicationFactory<Program> _factory;
+
+    public ScriptControllerTests(CustomWebApplicationFactory<Program> factory)
+    {
+        _factory = factory;
+    }
+
+    [Fact]
+    public async Task GetScriptAsync_ReturnsSuccessStatusCode()
+    {
+        // Arrange
+        var client = _factory.GetAnonymousClient();
+
+        // Act
+        var response = await client.GetAsync("/api/authen/script");
+
+        // Assert
+        response.EnsureSuccessStatusCode();
+    }
+}

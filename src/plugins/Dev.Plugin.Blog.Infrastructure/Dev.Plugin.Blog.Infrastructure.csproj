@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Dev.Plugin.Authen.Core\Dev.Plugin.Authen.Core.csproj" />
     <ProjectReference Include="..\..\common\Dev.Infrastructure\Dev.Infrastructure.csproj" />
+    <ProjectReference Include="..\Dev.Plugin.Blog.Core\Dev.Plugin.Blog.Core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

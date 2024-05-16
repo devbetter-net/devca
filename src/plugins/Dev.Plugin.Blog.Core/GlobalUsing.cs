@@ -4,3 +4,4 @@ global using FluentValidation;
 
 global using Dev.Core;
 global using Dev.Core.Exceptions;
+global using Dev.Plugin.Blog.Core.Services;
