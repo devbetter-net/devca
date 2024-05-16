@@ -18,8 +18,9 @@ public class ScriptControllerTests : IClassFixture<CustomWebApplicationFactory<P
 
         // Act
         var response = await client.GetAsync("/api/authen/script");
-
+        string content = await response.Content.ReadAsStringAsync();
         // Assert
         response.EnsureSuccessStatusCode();
+        Assert.NotEmpty(content);
     }
 }

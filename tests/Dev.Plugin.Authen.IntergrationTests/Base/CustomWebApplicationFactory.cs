@@ -30,14 +30,14 @@ public class CustomWebApplicationFactory<TProgram>
 
                 context.Database.EnsureCreated();
 
-                // try
-                // {
-                //     Utilities.InitializeDbForTests(context);
-                // }
-                // catch (Exception ex)
-                // {
-                //     logger.LogError(ex, $"An error occurred seeding the database with test messages. Error: {ex.Message}");
-                // }
+                try
+                {
+                    Utilities.InitializeDbForTests(context);
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, $"An error occurred seeding the database with test messages. Error: {ex.Message}");
+                }
             };
         });
     }
