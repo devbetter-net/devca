@@ -1,5 +1,4 @@
-﻿
-using Dev.Core.Exceptions;
+﻿using Dev.Core.Exceptions;
 using Dev.Plugin.Authen.Core.UseCases.Roles;
 using Dev.Plugin.Authen.Infrastructure.Data;
 
@@ -19,10 +18,15 @@ public class RoleService : IRoleService
         var existingRole = await _context.UserRoles.FirstOrDefaultAsync(x => x.UserId == userId && x.RoleId == roleId);
         if (existingRole == null)
         {
+            //get Role and User
+            var role = await _context.Roles.FindAsync(roleId);
+            var user = await _context.Users.FindAsync(userId);
             await _context.UserRoles.AddAsync(new UserRole
             {
                 RoleId = roleId,
-                UserId = userId
+                UserId = userId,
+                Role = role!,
+                User = user!
             });
             await _context.SaveChangesAsync();
         }

@@ -20,9 +20,10 @@ public static class WebApplicationExtensions
         builder.AddAuthenCore();
         builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));        
         //database
+        string connectionString = builder.Configuration.GetConnectionString("Authen")!;
         builder.Services.AddDbContext<AuthenDbContext>(options =>
         {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("Authen"));
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
         builder.RegisterSwagger();
         //services

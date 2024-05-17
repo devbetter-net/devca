@@ -4,7 +4,7 @@ using Dev.Plugin.Authen.Core.Services;
 
 namespace Dev.Plugin.Authen.Core.UseCases.Users;
 
-public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, CreateUserCommandResponse>
+public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {
     private readonly IUserService _userService;
 
@@ -13,7 +13,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
         _userService = userService;
     }
 
-    public async Task<CreateUserCommandResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
         var validator = new CreateUserCommandValidator(_userService);
         var validationResult = await validator.ValidateAsync(request);
@@ -46,6 +46,6 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
         };
 
         await _userService.CreateUserPasswordAsync(userPassword);
-        return new CreateUserCommandResponse(user.Id);
+        return user.Id;
     }
 }

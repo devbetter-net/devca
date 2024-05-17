@@ -1,6 +1,6 @@
-﻿namespace Dev.Plugin.Blog.Core.Domain;
+﻿namespace Dev.Plugin.Blog.Core.UseCases.Categories;
 
-public class Category
+public class UpdateCategoryCommand : IRequest
 {
     public Guid Id { get; set; }
     public Guid? ParentId { get; set; }
@@ -11,7 +11,4 @@ public class Category
     public string MetaKeywords { get; set; } = string.Empty;
     public bool IsPublished { get; set; }
     public int DisplayOrder { get; set; }
-    public DateTime CreatedOnUtc { get; set; }
-    public DateTime UpdatedOnUtc { get; set; }
-    public ICollection<CategoryPost>? CategoryPosts { get; set; }
 }

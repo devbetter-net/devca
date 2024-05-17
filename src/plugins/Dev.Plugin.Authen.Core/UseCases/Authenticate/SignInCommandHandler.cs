@@ -1,11 +1,13 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+
 using Dev.Plugin.Authen.Core.Configurations;
 using Dev.Plugin.Authen.Core.Domain;
 using Dev.Plugin.Authen.Core.Services;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+
 
 namespace Dev.Plugin.Authen.Core.UseCases.Authenticate;
 
@@ -46,6 +48,7 @@ public class SignInCommandHandler : IRequestHandler<SignInCommand, SignInRespons
             return response;
         }
         //token
+        response.SignInSuccessfully = true;
         response.Success = true; 
         response.Token = GenerateToken(user);
 

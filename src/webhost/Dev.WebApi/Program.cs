@@ -1,9 +1,11 @@
 using Dev.Plugin.Authen.Infrastructure;
+using Dev.Plugin.Blog.Infrastructure;
 using Dev.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.AddAuthen();
+builder.AddBlog();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
@@ -32,6 +34,7 @@ app.UseHttpsRedirection();
 app.UseCors();
 
 app.UseAuthen();
+app.UseBlog();
 
 app.MapControllers();
 app.Run();
