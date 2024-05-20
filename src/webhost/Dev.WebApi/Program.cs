@@ -12,14 +12,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-string withOrigins = builder.Configuration["AllowedHosts"]!;
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-        builder.WithOrigins(withOrigins)
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-});
+builder.Services.AddCors();
 
 var app = builder.Build();
 app.UseAuthen();
@@ -30,14 +23,25 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCustomExceptionHandler();
+
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.UseHttpsRedirection();
-app.UseCors();
+// global cors policy
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
+    
+app.MapControllers();
 
 app.UseAuthen();
 app.UseBlog();
-
-app.MapControllers();
+app.UseCustomExceptionHandler();
 app.Run();
 
 public partial class Program { }

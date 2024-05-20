@@ -30,7 +30,7 @@ public class ExceptionHandlerMiddleware
         HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError;
 
         context.Response.ContentType = "application/json";
-
+        context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
         var result = string.Empty;
 
         switch (exception)
