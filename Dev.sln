@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF127318
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Plugin.Authen.IntergrationTests", "tests\Dev.Plugin.Authen.IntergrationTests\Dev.Plugin.Authen.IntergrationTests.csproj", "{5B429CD9-3FB5-4244-80A3-FDF0A3B745FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Web", "src\webhost\Dev.Web\Dev.Web.csproj", "{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{5B429CD9-3FB5-4244-80A3-FDF0A3B745FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B429CD9-3FB5-4244-80A3-FDF0A3B745FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B429CD9-3FB5-4244-80A3-FDF0A3B745FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{11F822E5-B9D1-4487-8464-78B91FDABCC5} = {CB163C69-3FF0-4C89-853B-48F59DC55B21}
 		{E62BED28-E3EE-4A11-89E6-E4803218BFCE} = {CB163C69-3FF0-4C89-853B-48F59DC55B21}
 		{5B429CD9-3FB5-4244-80A3-FDF0A3B745FE} = {BF127318-1529-435D-AC17-3F4EB1BE87D2}
+		{FFA0FE40-C2F1-4210-8C71-7C03AC60B85D} = {69BFBBB8-172C-4463-A238-491F40B28D1D}
 	EndGlobalSection
 EndGlobal
