@@ -1,7 +1,7 @@
 ﻿namespace Dev.Plugin.Blog.Core.Controllers;
 
 [ApiController]
-[Route("api/blog/[controller]")]
+[Route("blog/[controller]")]
 public class ScriptController : ControllerBase
 {
     private readonly ICommonService _commonService;

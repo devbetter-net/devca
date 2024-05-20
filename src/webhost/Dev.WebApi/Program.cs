@@ -12,12 +12,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+string withOrigins = builder.Configuration["AllowedHosts"]!;
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
-         builder.AllowAnyOrigin()
-                      .AllowAnyMethod()
-                      .AllowAnyHeader());
+        builder.WithOrigins(withOrigins)
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 });
 
 var app = builder.Build();

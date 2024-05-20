@@ -4,7 +4,7 @@ namespace Dev.Plugin.Authen.Core.Controllers;
 
 
 [Authorize]
-[Route("api/authen/[controller]")]
+[Route("authen/[controller]")]
 [ApiController]
 public class BaseController : ControllerBase
 {

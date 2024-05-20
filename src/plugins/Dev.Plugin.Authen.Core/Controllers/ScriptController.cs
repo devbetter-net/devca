@@ -3,7 +3,7 @@
 namespace Dev.Plugin.Authen.Core;
 
 [ApiController]
-[Route("api/authen/[controller]")]
+[Route("authen/[controller]")]
 public class ScriptController : ControllerBase
 {
     private readonly ICommonService _commonService;
