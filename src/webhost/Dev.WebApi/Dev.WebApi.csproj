@@ -7,8 +7,8 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\common\Dev.Core\Dev.Core.csproj" />
-    <ProjectReference Include="..\..\plugins\Dev.Plugin.Authen.Infrastructure\Dev.Plugin.Authen.Infrastructure.csproj" />
     <ProjectReference Include="..\..\plugins\Dev.Plugin.Blog.Infrastructure\Dev.Plugin.Blog.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\plugins\Dev.Plugin.Auth.Infrastructure\Dev.Plugin.Auth.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

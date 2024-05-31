@@ -1,0 +1,14 @@
+﻿using Dev.Plugin.Auth.Core.Domain;
+using Dev.Plugin.Auth.Core.UseCases.Roles;
+
+namespace Dev.Plugin.Auth.Core.Services;
+
+public interface IRoleService
+{
+    Task AddUserToRoleAsync(Guid roleId, Guid userId);
+    Task CreateRoleAsync(Role role);
+    Task<Role> GetByIdAsync(Guid id);
+    Task<bool> IsRoleNameUniqueAsync(string name);
+    Task<List<Role>> SearchRoleAsync(string searchText);
+    Task UpdateRoleAsync(UpdateRoleCommand request);
+}

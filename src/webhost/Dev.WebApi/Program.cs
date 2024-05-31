@@ -1,11 +1,11 @@
-using Dev.Plugin.Authen.Infrastructure;
+using Dev.Plugin.Auth.Infrastructure;
 using Dev.Plugin.Blog.Infrastructure;
 using Dev.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-builder.AddAuthen();
-builder.AddBlog();
+builder.AddAuth(); //add authenticate and authorize
+builder.AddBlog(); //add blog plugin module
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
@@ -15,8 +15,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 var app = builder.Build();
-app.UseAuthen();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -39,8 +37,8 @@ app.UseCors(x => x
     
 app.MapControllers();
 
-app.UseAuthen();
-app.UseBlog();
+app.UseAuth(); //use authenticate and authorize
+app.UseBlog(); //use blog plugin module
 app.UseCustomExceptionHandler();
 app.Run();
 
