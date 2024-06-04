@@ -1,4 +1,6 @@
-﻿namespace Dev.Plugin.Blog.Infrastructure.Services;
+﻿using Dev.Core.Exceptions;
+
+namespace Dev.Plugin.Blog.Infrastructure.Services;
 
 public class CategoryService : ICategoryService
 {
@@ -16,9 +18,19 @@ public class CategoryService : ICategoryService
         return category.Id;
     }
 
+    public async Task DeleteCategoryAsync(Guid id)
+    {
+        var categoryToDelete = await _dbContext.Categories.FirstOrDefaultAsync(x => x.Id == id);
+        if (categoryToDelete == null)
+        {
+            throw new DevNotFoundException($"Category not found", id);
+        }
+        await _dbContext.SaveChangesAsync();
+    }
+
     public async Task<Category?> GetCategoryByIdAsync(Guid id)
     {
-        return await _dbContext.Categories.FirstOrDefaultAsync(x => x.Id == id);
+        return await _dbContext.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task<bool> IsCategoryNameUniqueAsync(string name)

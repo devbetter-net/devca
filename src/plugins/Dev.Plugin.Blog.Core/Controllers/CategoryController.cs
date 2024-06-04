@@ -22,5 +22,11 @@ public class CategoryController : BaseController
     {
         await _mediator.Send(command);
         return Ok();
+    } 
+    [HttpDelete]
+    public async Task<IActionResult> DeleteCategoryAsync(DeleteCategoryCommand command)
+    {
+        await _mediator.Send(command);
+        return Ok();
     }
 }
